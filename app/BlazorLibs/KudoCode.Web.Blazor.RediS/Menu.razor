@@ -1,0 +1,43 @@
+@using System.Threading.Tasks
+@using global::AutoMapper
+@using KudoCode.Web.Infrastructure.Domain
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using Microsoft.AspNetCore.Components
+@inject WebHandlerController WebHandlerController
+@inject NavigationManager UriHelper
+@inject ApiPostController ApiPostController
+@inject IMapper Mapper
+
+@inherits KudoCode.Web.Infrastructure.Blazor.Infrastructure.KudoCodePageComponent
+
+@{
+    var colLabelText = new[] {5, 7};
+}
+
+
+    <div class="row">
+        <KudoCodeButton
+            value="Save"
+            Class="btn-outline-primary"
+            Click="@(() => { Add(); })"/>
+    </div>
+
+
+
+@functions
+{
+
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+    }
+
+
+    private void Add()
+    {
+        OnClick.InvokeAsync("test");
+    }
+
+}

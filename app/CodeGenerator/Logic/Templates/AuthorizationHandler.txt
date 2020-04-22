@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using KudoCode.LogicLayer.Infrastructure.Execution.Context.Interfaces;
+using KudoCode.LogicLayer.Infrastructure.Handlers;
+
+namespace KudoCode.LogicLayer.Domain.Logic.<%folder%>.Handlers.<%request%>
+{
+
+	public class <%request%><%entity%>AuthorizationHandler : AbstractAuthorizationHandler<<%request%><%entity%>Request, <%response%>>
+	{
+
+		public <%request%><%entity%>AuthorizationHandler(IApplicationUserContext applicationUserContext, IAuthorizationContext<<%response%>> context) 
+		: base(applicationUserContext, context)
+		{
+
+		}
+	}
+}

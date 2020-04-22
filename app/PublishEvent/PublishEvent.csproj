@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+      <TargetFramework>netcoreapp5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="5.1.2" />
+      <PackageReference Include="KudoCode.Helpers" Version="1.0.0.25" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KudoCode.LogicLayer.Dtos\KudoCode.LogicLayer.Dtos.csproj" />
+      <ProjectReference Include="..\KudoCode.Services.Workflow.RabbitMQ\KudoCode.Services.Workflow.RabbitMQ.csproj" />
+    </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+using KudoCode.LogicLayer.Infrastructure.Domain.Interfaces;
+
+namespace KudoCode.LogicLayer.Domain.Logic.<%entity%>s.Entities
+{
+    public class <%entity%> : IEntity
+    {
+        public <%entity%>()
+        {
+        }
+        public int Id { get; set; }
+    }
+}

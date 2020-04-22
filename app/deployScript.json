@@ -1,0 +1,115 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appService_ProjectWateWebApi_name": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_location": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_name": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_resourceGroup": {
+      "type": "string"
+    },
+    "appInsightsComponentName_ProjectWateWebApi_location": {
+      "type": "string"
+    },
+    "appInsightsComponentName_ProjectWateWebApi_type": {
+      "type": "string"
+    },
+    "appInsightsComponentName_ProjectWateWebApi_hockeyAppToken": {
+      "type": "string"
+    },
+    "appInsightsComponentName_ProjectWateWebApi_requestSource": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_skuName": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_skuTier": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_skuFamily": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_skuSize": {
+      "type": "string"
+    },
+    "appServicePlan_KudoCodeWebApi20190729093624Plan_workerSizeId": {
+      "type": "int"
+    }
+  },
+  "resources": [
+    {
+      "location": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_location')]",
+      "name": "[parameters('appService_ProjectWateWebApi_name')]",
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "[concat('hidden-related:', resourceId(parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_name')))]": "empty"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_name'))]"
+      ],
+      "kind": "app",
+      "properties": {
+        "name": "[parameters('appService_ProjectWateWebApi_name')]",
+        "kind": "app",
+        "httpsOnly": true,
+        "serverFarmId": "[resourceId(parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_name'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', parameters('appService_ProjectWateWebApi_name'))]",
+            "[concat('microsoft.insights/components/', parameters('appService_ProjectWateWebApi_name'))]"
+          ],
+          "properties": {
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(resourceId('Microsoft.Insights/components', parameters('appService_ProjectWateWebApi_name'))).InstrumentationKey]",
+            "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+            "ApplicationInsightsAgent_EXTENSION_VERSION": "~2",
+            "DiagnosticServices_EXTENSION_VERSION": "~3"
+          }
+        }
+      ]
+    },
+    {
+      "location": "[parameters('appInsightsComponentName_ProjectWateWebApi_location')]",
+      "name": "[parameters('appService_ProjectWateWebApi_name')]",
+      "type": "microsoft.insights/components",
+      "apiVersion": "2014-08-01",
+      "tags": {
+        "[concat('hidden-link:', concat('/providers/Microsoft.Web/sites/', parameters('appService_ProjectWateWebApi_name')))]": "Resource"
+      },
+      "properties": {
+        "ApplicationId": "[parameters('appService_ProjectWateWebApi_name')]",
+        "Application_Type": "[parameters('appInsightsComponentName_ProjectWateWebApi_type')]",
+        "HockeyAppToken": "[parameters('appInsightsComponentName_ProjectWateWebApi_hockeyAppToken')]",
+        "HockeyAppId": "[parameters('appInsightsComponentName_ProjectWateWebApi_hockeyAppToken')]",
+        "Flow_Type": "Redfield",
+        "Request_Source": "[parameters('appInsightsComponentName_ProjectWateWebApi_requestSource')]"
+      }
+    },
+    {
+      "location": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_location')]",
+      "name": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_name')]",
+      "type": "Microsoft.Web/serverFarms",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_skuName')]",
+        "tier": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_skuTier')]",
+        "family": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_skuFamily')]",
+        "size": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_skuSize')]"
+      },
+      "properties": {
+        "name": "[parameters('appServicePlan_KudoCodeWebApi20190729093624Plan_name')]"
+      }
+    }
+  ]
+}

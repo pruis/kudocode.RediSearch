@@ -1,0 +1,53 @@
+﻿@page "/"
+@using AutoMapper;
+@using System.Diagnostics
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Tokens
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using KudoCode.LogicLayer.Dtos.Companies.Inbound
+@using KudoCode.Web.Blazor.RediS.Pages
+
+@inject IMapper Mapper
+@inject ApiPostController ApiPostController
+@inject IApplicationContextHandler ApplicationContextHandler
+
+
+@inherits KudoCodePageComponent
+@{
+	var colLabelText = new int[] { 3, 9 };
+}
+
+<div class="card">
+	<div class="card-header">
+		RediSearch - Demo
+	</div>
+	<br />
+	<div class="card-bofy">
+		<div class="card-text">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<CompanySave/>
+					</div>
+					<div class="col">
+						<CompanySearch/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="card-footer">
+		<a href="http://kudocode.me">kudocode.me</a>
+	</div>
+
+</div>
+
+
+@functions
+{
+
+}

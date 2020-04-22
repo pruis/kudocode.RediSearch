@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>KudoCode.Mobile</AssemblyName>
+    <RootNamespace>KudoCode.Mobile</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BlazorMobile" Version="3.0.10-preview9.19424.4" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991221" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KudoCode.Mobile.Blazor.Common\KudoCode.Mobile.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Package\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\KudoCode.Mobile.Blazor\bin\KudoCode.Mobile.Blazor.zip" Link="Package\KudoCode.Mobile.Blazor.zip" />
+  </ItemGroup>
+  
+</Project>

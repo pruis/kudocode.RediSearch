@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KudoCode.LogicLayer.Dtos.<%folder%>;
+using KudoCode.LogicLayer.Infrastructure.Dtos.Response.Interfaces;
+using KudoCode.LogicLayer.Infrastructure.Execution.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+
+namespace KudoCode.Web.Api.Controllers
+{
+	[Produces("application/json")]
+	[Route("api/[controller]")]
+	[TokenAuthentication]
+	public class <%entity%>Controller : Controller
+	{
+		private readonly IExecutionPipeline _executionPipeline;
+
+		public <%entity%>Controller(IExecutionPipeline executionPipeline)
+			=> _executionPipeline = executionPipeline;
+
+		[HttpPost]
+		[Route("[action]")]
+		public async Task<IApiResponseContextDto<<%response%>>> <%request%>([FromBody] <%request%><%entity%>Request request)
+			=> await Task.Run(()=> _executionPipeline.Execute<<%request%><%entity%>Request, <%response%>>(request));
+	}
+}

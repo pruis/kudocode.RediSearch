@@ -1,0 +1,69 @@
+﻿@page "/SaveCompany"
+
+@using AutoMapper;
+@using System.Diagnostics
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Tokens
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using KudoCode.LogicLayer.Dtos.Companies.Inbound
+@using KudoCode.Web.Blazor.RediS.ViewModel
+@using LogicLayer.Infrastructure.Dtos.Messages
+
+@inject IMapper Mapper
+@inject ApiPostController ApiPostController
+@inject IApplicationContextHandler ApplicationContextHandler
+
+@inherits KudoCodePageComponent
+@{var colLabelText = new int[] { 3, 9 };}
+
+<KudoCodeTextBox Id="Name"
+				 Title="Name:"
+				 ColSize="@colLabelText"
+				 Value="@Company.Name"
+				 Type="string"
+				 OnChange="@(x => Company.Name = x)" />
+
+<KudoCodeTextBox Id="Description"
+				 Title="Description:"
+				 ColSize="@colLabelText"
+				 Value="@Company.Description"
+				 Type="string"
+				 OnChange="@(x => Company.Description = x)" />
+<br />
+
+<KudoCodeButton Id="Save"
+				ColSize="@(new int[] {8, 4})"
+				Value="Save"
+				Click="@(() => { Save(); })" />
+<br />
+
+@code
+{
+	public CompanyViewModel Company { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Company = new CompanyViewModel();
+	}
+
+	private async void Save()
+	{
+		await ApiPostController
+		.Create<SaveCompanyRequest, SaveCompanyResponse>()
+		.SetOnSuccess((rsp) =>
+			AddMessage
+			(
+				"",
+				$"Company Saved with ID: {rsp.Result.Id}",
+				MessageDtoType.Success
+			)
+		)
+		.SetOnComplete((rsp) =>
+		{
+			Messages.AddRange(rsp.Messages);
+			StateHasChanged();
+		})
+		.Post(Mapper.Map<SaveCompanyRequest>(Company));
+	}
+}

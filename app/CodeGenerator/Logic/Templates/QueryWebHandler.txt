@@ -1,0 +1,39 @@
+using System.Linq;
+using AutoMapper;
+using KudoCode.LogicLayer.Infrastructure.Dtos.Messages;
+using KudoCode.Web.Api.Connector;
+using KudoCode.Web.Application.Execution;
+
+namespace KudoCode.Web.Application.Handlers
+{
+    public class <%request%><%entity%>WebHandler : IWebHandler<<%request%><%entity%>Request, <%request%><%entity%>ViewModel>
+    {
+        private readonly Connector _connector;
+        private readonly IMapper _mapper;
+
+        public <%request%><%entity%>WebHandler(Connector connector, IMapper mapper)
+        {
+            _connector = connector;
+            _mapper = mapper;
+        }
+
+        public IWebResponseDto<<%request%><%entity%>ViewModel> Handle(<%request%><%entity%>Request request, IWebResponseDto<<%request%><%entity%>ViewModel> webResponseDto)
+        {
+            var lookupResponse = _connector.Lookups.Get(new GetLookupsDto(new[] {"","",""}));
+            webResponseDto.Messages.AddRange(lookupResponse.Messages);
+
+            if (webResponseDto.Messages.Any(a => a.Type == MessageDtoType.Error))
+                return webResponseDto;
+
+            webResponseDto.Result.Lookup = Extensions.AssignLookupValues(lookupResponse.Result, "");
+
+            if (request.Id == 0)
+                return webResponseDto;
+
+            var apiResponseDto = _connector.EndPoint.Request<<%request%><%entity%>Request,<%response%>>(request);
+            _mapper.Map(apiResponseDto, webResponseDto);
+
+            return webResponseDto;
+        }
+    }
+}

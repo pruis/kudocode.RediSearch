@@ -1,0 +1,96 @@
+﻿@page "/"
+@namespace KudoCode.Mobile.Blazor
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>BlazorMobile.BlazorApp</title>
+	<base href="/" />
+	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+	<app>@(await Html.RenderComponentAsync<MobileApp>(RenderMode.ServerPrerendered))</app>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+	<script type="text/javascript" src="js/numeral.min.js"></script>
+	<script type="text/javascript" src="js/KudoCodeCurrencyInput.js"></script>
+	<script type="text/javascript" src="js/KudoCodeDecimalInput.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+	<script type="text/javascript" src="js/blazor.polyfill.min.js"></script>
+	<script type="text/javascript" src="_framework/blazor.server.js"></script>
+
+	<script type="text/javascript">
+
+		$(function () {
+			window.KudoCodeModal = {
+				open: function (id) {
+					$('#' + id).modal('show');
+					return "true";
+				},
+				close: function (id) {
+					$('#' + id).modal('hide');
+					return "true";
+				}
+			}
+		});
+
+		$(function () {
+			window.Toast = {
+				success: function (heading, message) {
+					debugger;
+					toastr.success(heading, message);
+					return "true";
+				},
+				error: function (heading, message) {
+					toastr.error(heading, message);
+					return "true";
+				},
+				warning: function (heading, message) {
+					toastr.warning(heading, message);
+					return "true";
+				},
+				info: function (heading, message) {
+					toastr.info(heading, message);
+					return "true";
+				}
+			}
+		});
+
+
+		$(function () {
+			window.storage = {
+				get: function (key) {
+					debugger;
+					var value = window.localStorage.getItem(key);
+
+					value = value.slice(0, value.length - 1);
+					value = value.slice(1);
+					return value;
+				}
+				,
+				Set: function (key,value) {
+					debugger;
+					window.localStorage.setItem(key,value);
+					return "true";
+				}
+
+			}
+		});
+
+	</script>
+
+
+</body>
+</html>
+
+<!-- AUTO-GENERATED FILE - DO NOT EDIT! -->

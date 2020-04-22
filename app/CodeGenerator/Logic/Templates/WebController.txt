@@ -1,0 +1,34 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace KudoCode.Web.Application.Controllers
+{
+	[ServiceFilter(typeof(WebTokenAuthorizationAttribute))]
+	public class <%entity%>Controller : Controller
+    {
+	    private readonly WebExecutionPlan _executionPlan;
+
+	    public <%entity%>Controller(WebExecutionPlan executionPlan)
+	    {
+		    _executionPlan = executionPlan;
+	    }
+
+	    public IActionResult Index()
+        {
+			return View();
+        }
+        
+        [HttpGet("[controller]/[action]/{id:int}/{portfolioId:int}")]
+        public IActionResult Edit(int id, int portfolioId)
+	    {
+	        var result = _executionPlan.Execute<<%request%><%entity%>Request, <%request%><%entity%>ViewModel>(new <%request%><%entity%>Request() {Id = id});
+			return View(result);
+        }
+
+		[HttpPost]
+		public IActionResult Save(<%request%><%entity%>ViewModel model)
+		{
+			var result = _executionPlan.Execute<<%request%><%entity%>ViewModel, int>(model);
+			return Json(result);
+        }
+    }
+}

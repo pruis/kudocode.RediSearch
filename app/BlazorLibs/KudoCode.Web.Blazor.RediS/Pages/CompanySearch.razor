@@ -1,0 +1,105 @@
+﻿@page "/SaveCompany"
+
+@using AutoMapper;
+@using System.Diagnostics
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Tokens
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using KudoCode.LogicLayer.Dtos.Companies.Inbound
+@using KudoCode.Web.Blazor.RediS.ViewModel
+@using KudoCode.LogicLayer.Dtos.CompanyRediSs.Outbound
+@using KudoCode.LogicLayer.Dtos.Companies.Outbound
+@using Newtonsoft.Json
+@using LogicLayer.Infrastructure.Dtos.Messages
+
+
+@inject IMapper Mapper
+@inject ApiPostController ApiPostController
+@inject IApplicationContextHandler ApplicationContextHandler
+
+@inherits KudoCodePageComponent
+
+
+<div class="row">
+	<div class="col-8">
+		<KudoCodeTextBox Id="Search"
+						 Placeholder="Search"
+						 ColSize="@(new int[] { 0, 12 })"
+						 Value="@SearchText"
+						 Type="string"
+						 OnChange="@(x => SearchText = x)" />
+
+	</div>
+	<div class="col-4">
+		<KudoCodeButton Id="Search"
+						ColSize="@(new int[] { 0, 12 })"
+						Value="Search"
+						Click="@(() => { Search(); })" />
+
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		&emsp;
+	</div>
+</div>
+
+@if (Response.List.Any())
+{
+
+	<KudoCodeTable Items="@Response.List">
+		<Columns>
+			<KudoCodeTableRow Title="Score" Property="Score" TItem="RediSResult" />
+			<KudoCodeTableRow Title="Name" TItem="RediSResult">
+				<RowTemplate Context="ctx">
+					@ctx.Data.Name
+				</RowTemplate>
+			</KudoCodeTableRow>
+			<KudoCodeTableRow Title="Description" TItem="RediSResult">
+				<RowTemplate Context="ctx">
+					@ctx.Data.Description
+				</RowTemplate>
+			</KudoCodeTableRow>
+		</Columns>
+	</KudoCodeTable>
+}
+
+@functions
+{
+	private string SearchText { get; set; }
+	private SearchRediSResponse Response { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Response = new SearchRediSResponse();
+	}
+
+	private async void Search()
+	{
+		await ApiPostController
+		.Create<SearchRediSRequest, SearchRediSResponse>()
+			.SetOnSuccess((rsp) =>
+			{
+				Response = rsp.Result;
+				AddMessage
+				(
+					"",
+					$"Search Done: {SearchText}",
+					MessageDtoType.Success
+				);
+			})
+			.SetOnComplete((rsp) =>
+			{
+				Messages.AddRange(rsp.Messages);
+				StateHasChanged();
+			})
+			.Post(new SearchRediSRequest()
+			{
+				SearchText = this.SearchText,
+				IndexName = "GetCompany",
+				Offset = 0,
+				Count = 1000,
+			});
+	}
+}

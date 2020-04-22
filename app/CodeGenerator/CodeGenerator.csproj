@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+      <TargetFramework>netcoreapp5.0</TargetFramework>
+      <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="5.1.2" />
+      <PackageReference Include="AutoMapper" Version="9.0.0" />
+      <PackageReference Include="KudoCode.CodeGenerator" Version="1.0.0.25" />
+      <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.25" />
+      <PackageReference Include="log4net" Version="2.0.8" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KudoCode.LogicLayer.Dtos\KudoCode.LogicLayer.Dtos.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Logic\Templates\WebController.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\ViewModel.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\ValidationHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\ServiceJs.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\Response.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\Request.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\QueryWebHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\QueryHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\HandlerTest.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\Entity.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\EditCshtml.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\Connector.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\CommandWebHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\CommandHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\AuthorizationHandler.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Logic\Templates\ApiController.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+
+</Project>

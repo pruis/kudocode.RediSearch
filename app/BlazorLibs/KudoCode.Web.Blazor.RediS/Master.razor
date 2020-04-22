@@ -1,0 +1,49 @@
+﻿@using System
+@using System.Threading.Tasks
+@using AutoMapper
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Messages
+@using Microsoft.AspNetCore.Components
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Responses
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Responses.Interfaces
+@using KudoCode.Web.Infrastructure.Domain
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using Microsoft.Extensions.Configuration
+
+@inject WebHandlerController WebHandlerController
+@inject NavigationManager UriHelper
+@inject ApiPostController ApiPostController
+@inject IMapper Mapper
+@inject IConfiguration Configuration
+@typeparam TItem
+
+@{
+    var colLabelText = new int[] {3, 6};
+}
+
+@if (GoToFragment == null && ViewModel != null && ViewModel.Result != null)
+{
+    @ChildFragment
+}
+else if (GoToFragment == null && (ViewModel == null || ViewModel.Result == null))
+{
+    <div>..loading..</div>
+}
+else if (GoToFragment != null)
+{
+    @GoToFragment
+}
+
+
+@functions
+{
+
+    [Parameter]
+    public RenderFragment ChildFragment { get; set; }
+
+    [Parameter]
+    public RenderFragment GoToFragment { get; set; }
+
+    [Parameter]
+    public IApiResponseContextDto<TItem> ViewModel { get; set; }
+
+}

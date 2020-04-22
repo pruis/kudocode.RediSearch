@@ -1,0 +1,86 @@
+﻿<div class="alert alert-secondary mt-4" role="alert">
+	<span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+	<strong>@Title</strong>
+
+	<span class="text-nowrap">
+		Please take our
+		<a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2069004">brief survey</a>
+	</span>
+	and tell us what you think.
+</div>
+
+@using KudoCode.LogicLayer.Infrastructure.Dtos.ApplicationUsers
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Messages
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Tokens
+@using KudoCode.Web.Infrastructure.Domain
+@using KudoCode.Web.Infrastructure.Domain.Execution
+@using KudoCode.Web.Infrastructure.Domain.HttpConnector
+@using KudoCode.Web.Infrastructure.Blazor.Infrastructure
+
+
+@inherits KudoCodePageComponent
+
+@{
+	var colLabelText = new int[] { 3, 9 };
+}
+
+@inject WebHandlerController WebHandlerController
+@inject ApiPostController ApiPostController
+@inject ITokenCache TokenCache
+
+
+<KudoCodeTextBox Id="PriceDecimal"
+				 Title="Price:"
+				 ColSize="@colLabelText"
+				 Value="@Price"
+				 Type="decimal"
+				 OnChange="@(x => @Price = x)" />
+
+<input type="button" class="btn btn-primary" value="Save" @onclick="@(() => { SaveTransaction(); })" />
+
+
+<KudoCodeLogin Login="Login" />
+
+@code {
+
+	private WebResponseDto<object> _viewModel = new WebResponseDto<object>();
+	private string Price { get; set; } = "101.10";
+	// Demonstrates how a parent component can supply parameters
+	[Parameter] public string Title { get; set; }
+
+	private void SaveTransaction()
+	{
+		ToastMessage(new MessageDto("TEST", "this is a message", MessageDtoType.Success));
+	}
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		Console.WriteLine("--------- SET TOKEN ------------------------------");
+		TokenCache.Set(Guid.NewGuid().ToString());
+	}
+
+	private void Login(GetTokenRequest request)
+	{
+
+		Console.WriteLine($"request login {request.Email} {request.Password}");
+		ApiPostController.Create<GetTokenRequest, ApplicationUserContext>()
+				.SetOnSuccess((rsp) =>
+				{
+					Console.WriteLine("SUCCESS");
+					Navigation.GoTo("/Dashboard");
+					_viewModel.Messages = new List<MessageDto>();
+				})
+				.SetOnFail((rsp) => { 					Console.WriteLine("FAIL");
+					                    Messages.AddRange(rsp.Messages); })
+			.Post(new GetTokenRequest
+		{
+			Email = request.Email,
+			Password = request.Password,
+		});
+
+
+	}
+
+}

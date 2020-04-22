@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Projects\kudocode.ProjectWate\app\KudoCode.Mobile" t="IncludeFlat">
+      <e p="KudoCode.Mobile" t="IncludeRecursive">
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="KudoCode.Mobile.csproj" t="IncludeRecursive" />
+        <e p="MainPage.xaml" t="Include" />
+        <e p="MainPage.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="KudoCode.Mobile.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Package" t="Include" />
+        <e p="Services" t="Include">
+          <e p="XamarinBridge.cs" t="Include" />
+        </e>
+      </e>
+      <e p="KudoCode.Mobile.Android" t="IncludeRecursive">
+        <e p="Assets" t="Include">
+          <e p="AboutAssets.txt" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="KudoCode.Mobile.Android.csproj" t="IncludeRecursive" />
+        <e p="MainActivity.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AndroidManifest.xml" t="Include" />
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="AboutResources.txt" t="Include" />
+          <e p="drawable" t="Include" />
+          <e p="drawable-hdpi" t="Include" />
+          <e p="drawable-xhdpi" t="Include" />
+          <e p="drawable-xxhdpi" t="Include" />
+          <e p="drawable-xxxhdpi" t="Include" />
+          <e p="layout" t="Include">
+            <e p="Tabbar.axml" t="Include" />
+            <e p="Toolbar.axml" t="Include" />
+          </e>
+          <e p="mipmap-anydpi-v26" t="Include">
+            <e p="icon.xml" t="Include" />
+            <e p="icon_round.xml" t="Include" />
+          </e>
+          <e p="mipmap-hdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-mdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxxhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="Resource.Designer.cs" t="Include" />
+          <e p="values" t="Include">
+            <e p="colors.xml" t="Include" />
+            <e p="styles.xml" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="KudoCode.Mobile.Blazor" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive">
+          <e p="KudoCode.Mobile.Blazor.zip" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="ServicesHelper.cs" t="Include" />
+        </e>
+        <e p="KudoCode.Mobile.Blazor.csproj" t="IncludeRecursive" />
+        <e p="linker.xml" t="Include" />
+        <e p="MobileApp.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="KudoCode.Mobile.Blazor.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_Imports.razor" t="Include" />
+          <e p="BlazorMobilePage.razor" t="Include" />
+          <e p="Counter.razor" t="Include" />
+          <e p="Dashboard.razor" t="Include" />
+          <e p="FetchData.razor" t="Include" />
+          <e p="Index.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="server_index.cshtml" t="Include" />
+        <e p="Shared" t="Include">
+          <e p="MainLayout.razor" t="Include" />
+          <e p="NavMenu.razor" t="Include" />
+          <e p="SurveyPrompt.razor" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="index.html" t="Include" />
+          <e p="js" t="Include">
+            <e p="blazor.polyfill.min.js" t="Include" />
+            <e p="datetimepicker.js" t="Include" />
+            <e p="KudoCodeCurrencyInput.js" t="Include" />
+            <e p="KudoCodeDecimalInput.js" t="Include" />
+            <e p="numeral.min.js" t="Include" />
+          </e>
+          <e p="sample-data" t="Include">
+            <e p="weather.json" t="Include" />
+          </e>
+          <e p="server_index.html" t="Include" />
+        </e>
+      </e>
+      <e p="KudoCode.Mobile.Blazor.Common" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Interfaces" t="Include">
+          <e p="IXamarinBridge.cs" t="Include" />
+        </e>
+        <e p="KudoCode.Mobile.Common.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="KudoCode.Mobile.Common.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="KudoCode.Mobile.Blazor.Server" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="KudoCode.Mobile.Blazor.Server.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="KudoCode.Mobile.Blazor.Server.AssemblyInfo.cs" t="Include" />
+              <e p="KudoCode.Mobile.Blazor.Server.MvcApplicationPartsAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="KudoCode.Mobile.iOS" t="IncludeRecursive">
+        <e p="AppDelegate.cs" t="Include" />
+        <e p="Assets.xcassets" t="Include">
+          <e p="AppIcon.appiconset" t="Include">
+            <e p="Contents.json" t="Include" />
+            <e p="Icon120.png" t="Include" />
+            <e p="Icon152.png" t="Include" />
+            <e p="Icon167.png" t="Include" />
+            <e p="Icon180.png" t="Include" />
+            <e p="Icon20.png" t="Include" />
+            <e p="Icon29.png" t="Include" />
+            <e p="Icon40.png" t="Include" />
+            <e p="Icon58.png" t="Include" />
+            <e p="Icon60.png" t="Include" />
+            <e p="Icon76.png" t="Include" />
+            <e p="Icon80.png" t="Include" />
+            <e p="Icon87.png" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Entitlements.plist" t="Include" />
+        <e p="Info.plist" t="Include" />
+        <e p="KudoCode.Mobile.iOS.csproj" t="IncludeRecursive" />
+        <e p="Main.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="LaunchScreen.storyboard" t="Include" />
+        </e>
+      </e>
+      <e p="KudoCode.Mobile.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.arch.lifecycle.runtime\1.1.1.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.arch.lifecycle.viewmodel\1.1.1.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.animated.vector.drawable\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.compat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.coordinaterlayout\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.design\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.media.compat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.transition\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.v7.appcompat\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.v7.recyclerview\28.0.0.3\proguard\monoandroid90\proguard.txt" t="Include" />
+    <e p="C:\Users\MariusPruis\.nuget\packages\xamarin.android.support.versionedparcelable\28.0.0.3\proguard\monoandroid90" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="C:\Users\MariusPruis\.Rider2019.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\MariusPruis\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\MariusPruis\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_KudoCode.Mobile.258004552.00" t="ExcludeRecursive" />
+  </component>
+</project>

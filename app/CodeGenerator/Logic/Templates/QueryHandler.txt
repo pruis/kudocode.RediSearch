@@ -1,0 +1,44 @@
+using KudoCode.LogicLayer.Dtos.<%folder%>;
+using KudoCode.LogicLayer.Domain.Logic.<%folder%>.Entities;
+using Autofac;
+using AutoMapper;
+using KudoCode.LogicLayer.Infrastructure.Domain.Interfaces;
+using KudoCode.LogicLayer.Infrastructure.Execution.Context.Interfaces;
+using KudoCode.LogicLayer.Infrastructure.Handlers;
+using System.Collections.Generic;
+
+namespace KudoCode.LogicLayer.Domain.Logic.<%folder%>.Handlers.<%request%>
+{
+    public class <%request%><%entity%>RequestWorkerHandler : QueryHandler<<%request%><%entity%>Request,
+        <%entity%>, <%response%>>
+    {
+        public <%request%><%entity%>RequestWorkerHandler(
+            IMapper mapper,
+            IReadOnlyRepository repository,
+            ILifetimeScope scope,
+            IWorkerContext<<%response%>> context)
+            : base(mapper, repository, scope, context)
+        {
+        }
+
+        protected override void GetEntity()
+        {
+            Entity = Request.Id > 0
+                ? Repository.GetOne<<%entity%>>(a => a.Id == Request.Id a.<%entity%>Id == Request.<%entity%>Id)
+                : new <%entity%>();
+        }
+
+        protected override void ValidateEntity()
+        {
+                    if (Entity == null)
+                        Context.AddMessage("E4",
+                            $"<%entity%> with ID {Request.Id} and Portfolio Id and <%entity%>Id {Request.<%entity%>Id}");
+
+        }
+
+        protected override void Execute()
+        {
+            Context.Result = Mapper.Map<<%response%>>(Entity);
+        }
+    }
+}

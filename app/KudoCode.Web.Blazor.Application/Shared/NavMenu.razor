@@ -1,0 +1,93 @@
+@using System.Diagnostics
+@using KudoCode.LogicLayer.Infrastructure.Dtos.ApplicationUsers.Interface
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Messages
+@using KudoCode.LogicLayer.Infrastructure.Dtos.Tokens
+@using KudoCode.Web.Blazor.Application.ViewModels
+@using KudoCode.Web.Infrastructure.Domain
+@using KudoCode.Web.Infrastructure.Domain.Execution
+@using KudoCode.Web.Infrastructure.Blazor.UI
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+
+@inject IKudoCodeNavigation Navigation
+@inject IApplicationContextHandler ApplicationContextHandler
+@inject WebHandlerController WebHandlerController
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">KudoCode</a>
+    <button class="navbar-toggler" onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+
+@if (!ApplicationContextHandler.IsLoggedIn())
+{
+    <KudoCodeLogin Login="Login"/>
+}
+
+<div class="@NavMenuCssClass" onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        @if (ApplicationContextHandler.IsLoggedIn())
+        {
+            <li class="nav-item px-3">
+                <a
+                    @onclick="@Logout"
+                     class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Logout
+                </a>
+            </li>
+        }
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    bool collapseNavMenu = true;
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private WebResponseDto<NavViewModel> _viewModel = new WebResponseDto<NavViewModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(() => { ApplicationContextHandler.FetchContext(); });
+    }
+
+    private void Login(GetTokenRequest request)
+    {
+        WebHandlerController.Create<GetTokenRequest, int>()
+            .SetOnSuccess((rsp) =>
+            {
+                Navigation.GoTo("/Dashboard");
+                _viewModel.Messages = new List<MessageDto>();
+            })
+            .SetOnFail((rsp) => { _viewModel.Messages = rsp.Messages; })
+            .Execute(new GetTokenRequest
+            {
+                Email = request.Email,
+                Password = request.Password,
+            });
+    }
+
+    private void Logout()
+    {
+        ApplicationContextHandler.Destroy();
+        Navigation.GoTo("/");
+    }
+
+}

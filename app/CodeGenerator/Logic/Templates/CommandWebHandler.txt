@@ -1,0 +1,31 @@
+using System.Linq;
+using AutoMapper;
+using KudoCode.LogicLayer.Infrastructure.Dtos.Messages;
+using KudoCode.Web.Api.Connector;
+using KudoCode.Web.Application.Execution;
+
+namespace KudoCode.Web.Application.Handlers
+{
+    public class <%request%><%entity%>WebHandler : IWebHandler<<%request%><%entity%>ViewModel, <%response%>>
+    {
+        private readonly Connector _connector;
+        private readonly IMapper _mapper;
+
+        public <%request%><%entity%>WebHandler(Connector connector, IMapper mapper)
+        {
+            _connector = connector;
+            _mapper = mapper;
+        }
+
+  		public IWebResponseDto<<%response%>> Handle(<%request%><%entity%>ViewModel vm, IWebResponseDto<<%response%>> responseDto)
+  		{
+  			var result = _connector.EndPoint.Request<<%request%><%entity%>Request,<%response%>>(_mapper.Map<<%request%><%entity%>Request>(vm));
+  
+  			_mapper.Map(result, responseDto);
+  
+  			if (!responseDto.Messages.Any())
+  				responseDto.Messages.Add(new MessageDto("M1", "Success", 0));
+  			return responseDto;
+  		}
+    }
+}

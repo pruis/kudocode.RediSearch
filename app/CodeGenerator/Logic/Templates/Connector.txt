@@ -1,0 +1,22 @@
+using KudoCode.LogicLayer.Dtos.<%folder%>;
+using KudoCode.LogicLayer.Infrastructure.Dtos.Response.Interfaces;
+
+namespace KudoCode.Web.Api.Connector.<%folder%>
+{
+	public class <%entity%>Connector
+	{
+		private readonly ConnectorClient _connectorClient;
+
+		public <%entity%>Connector(ConnectorClient connectorClient)
+		{
+			this._connectorClient = connectorClient;
+		}
+
+		public IApiResponseContextDto<<%response%>> <%request%>(<%request%><%entity%>request request)
+		{
+			var result = ConnectorCalls.Post<<%request%><%entity%>Request, <%response%>>(_connectorClient, request, @"<%entity%>/<%request%>");
+			return result;
+		}
+
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KudoCode.Mobile.Blazor.Server": {
+      "commandName": "Project",
+      "launchUrl": "http://localhost:5080/?mode=server"
+    }
+  }
+}

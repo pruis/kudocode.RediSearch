@@ -1,0 +1,85 @@
+@using Newtonsoft.Json
+@model object
+
+<!DOCTYPE html>
+
+<head>
+    <title>Portfolio</title>
+</head>
+<body>
+
+<div id="<%entity%>" class="testBorder">
+    <div class="container">
+
+        <div id="koContainer" class="testBorder" style="display: none;" data-bind="visible: true">
+
+            <partial name="successMessages"/>
+            <partial name="errorMessages"/>
+
+            <br>
+            <div class="row">
+                <div class="col-2 cellLabel">
+                    YY:
+                </div>
+                <div class="col-2">
+                    <input id="Date" class="form-control" date-autoclose="true"
+                           data-bind=" event:{ valueUpdate: 'input'},  dateTimePicker: YY , 
+                            dateTimePickerOptions: { allowTime: false, inline: false, sideBySide: false }, value: Result.YY"/>
+                </div>
+            </div>
+ 
+             <div class="row">
+                 <div class="col-2 cellLabel">
+                     XX:
+                 </div>
+                 <div class="col-2">
+                     <input id="XX" class="form-control" data-bind="value: Result.XX"/>
+                 </div>
+             </div>
+            
+            <div class="row">
+                <div class="col-2 cellLabel">
+                    CC:
+                </div>
+                <div class="col-2">
+                    <select id="CC" class="form-control" data-bind="options: Result.CC,
+                                   optionsText: 'Description',
+            					   optionsValue: 'Id',
+                                   value: Result.CC_Id,
+                                   optionsCaption: 'Choose...'">
+                    </select>
+                </div>
+            </div>
+             
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-lg-2">
+                    <input id="BackBtn" data-bind="click: function(){$root.Back( )}"
+                           class="form-control btn btn-sm btn-secondary" value="Back"/>
+                </div>
+                <div class="col-lg-2">
+                    <input class="form-control btn btn-sm btn-primary" value="Save" data-bind="click:  function(){ service.Save() };"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+@section scripts
+{
+    <script>
+        var viewModel;
+        var service;
+
+		var model = @Html.Raw(JsonConvert.SerializeObject(Model));
+		require(['viewModel', 'Services/<%entity%>Service'], 
+		function (vm, _<%entity%>) {
+			    viewModel = vm.Init(model, "koContainer", "<%entity%>");
+				service = _<%entity%>
+			});
+
+	</script>
+}

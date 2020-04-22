@@ -1,0 +1,53 @@
+﻿@page "/dashboard"
+@using System.Data.Common
+@using System.Diagnostics
+@using System.Linq.Expressions
+@using KudoCode.Web.Infrastructure.Domain
+@using KudoCode.Web.Infrastructure.Domain.Execution
+@using Microsoft.AspNetCore.Components
+@using KudoCode.Web.Blazor.Application.ViewModels
+
+@inject NavigationManager UriHelper
+
+@inherits KudoCode.Web.Infrastructure.Blazor.Infrastructure.KudoCodePageComponent
+
+@{ var colLabelText = new int[] {3, 9}; }
+
+@if (@RenderFragment == null)
+{
+    <div id="Dashboard">
+
+        <div class="card">
+            <div class="card-header">
+                Dashboard
+            </div>
+
+            <div class="card-body">
+                <div class="card-text">
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+    @RenderFragment
+}
+
+@functions
+{
+    DateTime Date = DateTime.Now;
+    bool Edit = true;
+
+    WebResponseDto<DashboardViewModel> _viewModel;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _viewModel = new WebResponseDto<DashboardViewModel>();
+    }
+
+}
