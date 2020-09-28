@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Dtos" Version="1.0.0.25" />
+    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Dtos" Version="1.0.0.27" />
   </ItemGroup>
 
   <ItemGroup>

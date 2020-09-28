@@ -25,18 +25,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.1.2" />
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Dtos" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.Messaging.Infrastructure" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.Web.Api.Connector" Version="1.0.0.25" />
-    <PackageReference Include="KudoCode.Web.Infrastructure.Domain" Version="1.0.0.25" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-preview.2.20160.3" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0-preview.2.20160.3" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-preview.2.20160.3" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-preview.2.20160.3" />
+    <PackageReference Include="Autofac" Version="5.2.0" />
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Dtos" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.Messaging.Infrastructure" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.Web.Api.Connector" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.Web.Infrastructure.Domain" Version="1.0.0.27" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0-preview.7.20364.11" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0-preview.7.20364.11" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-preview.7.20364.11" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-preview.7.20364.11" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RabbitMQ.Client" Version="6.0.0" />
     <PackageReference Include="Topshelf" Version="4.2.1" />

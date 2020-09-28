@@ -32,8 +32,6 @@ namespace KudoCode.Test.Unit.CompanyRediSs.Save
 
 		protected override void Seed()
 		{
-			ApplicationContext.Container.Resolve<IAuthenticationContext<SaveCompanyRediSResponse>>()
-				  .IsValidTokenProvided = true;
 
 		}
 

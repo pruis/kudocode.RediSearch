@@ -6,10 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Autofac" Version="5.1.2" />
-      <PackageReference Include="AutoMapper" Version="9.0.0" />
-      <PackageReference Include="KudoCode.CodeGenerator" Version="1.0.0.25" />
-      <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.25" />
+      <PackageReference Include="Autofac" Version="5.2.0" />
+      <PackageReference Include="AutoMapper" Version="10.0.0" />
+      <PackageReference Include="KudoCode.CodeGenerator" Version="1.0.0.27" />
+      <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.27" />
       <PackageReference Include="log4net" Version="2.0.8" />
     </ItemGroup>
 

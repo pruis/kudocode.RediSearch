@@ -38,9 +38,6 @@ namespace KudoCode.Test.Unit.CompanyRediSs.Search
 
 		protected override void Seed()
 		{
-			ApplicationContext.Container.Resolve<IAuthenticationContext<SearchRediSResponse>>()
-				  .IsValidTokenProvided = true;
-
 			PopulateTestData();
 		}
 		protected override void Given()
