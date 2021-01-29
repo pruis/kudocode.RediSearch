@@ -20,7 +20,7 @@
     <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Domain" Version="1.0.0.27" />
     <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Domain" Version="1.0.0.27" />
     <PackageReference Include="KudoCode.Messaging.Infrastructure" Version="1.0.0.27" />
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.7.20365.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0-preview.7.20365.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0-preview.7.20365.15" />
