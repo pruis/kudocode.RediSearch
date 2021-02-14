@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Autofac;
 using AutoMapper;
 using KudoCode.LogicLayer.Infrastructure.Domain.Logic.ApplicationUsers.AutoMapper;
-using KudoCode.LogicLayer.Plugin.EntityAudit.Domain.Logic.EntityAudits.AutoMapper;
+using KudoCode.LogicLayer.Plugin.EntityAudit_.Domain.Logic.EntityAudits.AutoMapper;
 using KudoCode.Helpers;
 using Microsoft.Extensions.Configuration;
 using KudoCode.LogicLayer.Dtos.Companies.Inbound;

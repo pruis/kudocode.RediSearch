@@ -9,7 +9,7 @@ using KudoCode.LogicLayer.Infrastructure;
 using KudoCode.LogicLayer.Infrastructure.Domain;
 using KudoCode.LogicLayer.Infrastructure.Execution.Context.Interfaces;
 using TestStack.BDDfy;
-using KudoCode.LogicLayer.Plugin.EntityAudit.Domain.Logic.EntityAudits.AutofacModules;
+using KudoCode.LogicLayer.Plugin.EntityAudit_.Domain.Logic.EntityAudits.AutofacModules;
 using KudoCode.Test.Unit.AutoFacModule;
 using KudoCode.Test.Unit.InMemoryDataBase;
 using Microsoft.Extensions.Configuration;

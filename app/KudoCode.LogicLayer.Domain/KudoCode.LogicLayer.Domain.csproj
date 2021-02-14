@@ -11,26 +11,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.2.0" />
-    <PackageReference Include="AutoMapper" Version="10.0.0" />
-    <PackageReference Include="FluentValidation" Version="9.1.3" />
-    <PackageReference Include="fm.EntityFrameworkCore.Relational" Version="2.4.0" />
-    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Domain" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Domain" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.Messaging.Infrastructure" Version="1.0.0.27" />
-    <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.7.20365.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0-preview.7.20365.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0-preview.7.20365.15" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="fm.EntityFrameworkCore.Relational" Version="4.0.0" />
+    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Domain" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Domain" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.Messaging.Infrastructure" Version="1.0.0.31" />
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
 
-    <PackageReference Include="NPOI" Version="2.5.1" />
-    <PackageReference Include="KudoCode.LogicLayer.Plugin.Redis.Domain" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.LogicLayer.Plugin.Redis.Infrastructure" Version="1.0.0.27" />
-    <PackageReference Include="NRediSearch" Version="2.1.30" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+    <PackageReference Include="NPOI" Version="2.5.2" />
+    <PackageReference Include="KudoCode.LogicLayer.Plugin.Redis.Domain" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.LogicLayer.Plugin.Redis.Infrastructure" Version="1.0.0.31" />
+    <PackageReference Include="NRediSearch" Version="2.2.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>

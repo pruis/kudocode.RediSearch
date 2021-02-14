@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.27" />
-    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Dtos" Version="1.0.0.27" />
+    <PackageReference Include="KudoCode.Helpers" Version="1.0.0.31" />
+    <PackageReference Include="KudoCode.LogicLayer.Infrastructure.Dtos" Version="1.0.0.31" />
   </ItemGroup>
 
   <ItemGroup>

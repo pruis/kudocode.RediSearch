@@ -52,42 +52,53 @@
 </div>
 
 @code {
-    bool collapseNavMenu = true;
+	bool collapseNavMenu = true;
 
-    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+	string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+	void ToggleNavMenu()
+	{
+		collapseNavMenu = !collapseNavMenu;
+	}
 
-    private WebResponseDto<NavViewModel> _viewModel = new WebResponseDto<NavViewModel>();
+	private WebResponseDto<NavViewModel> _viewModel = new WebResponseDto<NavViewModel>();
 
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Run(() => { ApplicationContextHandler.FetchContext(); });
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		await Task.Run(() => {
 
-    private void Login(GetTokenRequest request)
-    {
-        WebHandlerController.Create<GetTokenRequest, int>()
-            .SetOnSuccess((rsp) =>
-            {
-                Navigation.GoTo("/Dashboard");
-                _viewModel.Messages = new List<MessageDto>();
-            })
-            .SetOnFail((rsp) => { _viewModel.Messages = rsp.Messages; })
-            .Execute(new GetTokenRequest
-            {
-                Email = request.Email,
-                Password = request.Password,
-            });
-    }
+			try
+			{
 
-    private void Logout()
-    {
-        ApplicationContextHandler.Destroy();
-        Navigation.GoTo("/");
-    }
+			}
+			catch (KeyNotFoundException)
+			{
+
+			}
+
+		});
+	}
+
+	private void Login(GetTokenRequest request)
+	{
+		WebHandlerController.Create<GetTokenRequest, int>()
+			.SetOnSuccess((rsp) =>
+			{
+				Navigation.GoTo("/Dashboard");
+				_viewModel.Messages = new List<MessageDto>();
+			})
+			.SetOnFail((rsp) => { _viewModel.Messages = rsp.Messages; })
+			.Execute(new GetTokenRequest
+			{
+				Email = request.Email,
+				Password = request.Password,
+			});
+	}
+
+	private void Logout()
+	{
+		ApplicationContextHandler.Destroy();
+		Navigation.GoTo("/");
+	}
 
 }

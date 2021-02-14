@@ -1,6 +1,6 @@
 using KudoCode.LogicLayer.Infrastructure.Dtos.Responses.Interfaces;
 using KudoCode.LogicLayer.Infrastructure.Execution.Interfaces;
-using KudoCode.LogicLayer.Plugin.EntityAudit.Dtos.Interfaces;
+using KudoCode.LogicLayer.Plugin.EntityAudit_.Dtos.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KudoCode.Web.Api.Controllers.EntityAudit

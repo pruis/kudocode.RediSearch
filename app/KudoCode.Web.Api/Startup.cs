@@ -9,7 +9,7 @@ using KudoCode.LogicLayer.Domain.ContainerModules;
 using KudoCode.LogicLayer.Domain.Repository;
 using KudoCode.LogicLayer.Infrastructure;
 using KudoCode.LogicLayer.Infrastructure.Domain;
-using KudoCode.LogicLayer.Plugin.EntityAudit.Domain.Logic.EntityAudits.AutofacModules;
+using KudoCode.LogicLayer.Plugin.EntityAudit_.Domain.Logic.EntityAudits.AutofacModules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

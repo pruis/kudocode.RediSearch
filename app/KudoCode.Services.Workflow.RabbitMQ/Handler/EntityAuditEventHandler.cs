@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using KudoCode.Helpers;
 using KudoCode.LogicLayer.Infrastructure.Dtos.Requests;
-using KudoCode.LogicLayer.Plugin.EntityAudit.Dtos;
+using KudoCode.LogicLayer.Plugin.EntityAudit_.Dtos;
 using KudoCode.Messaging.Infrastructure;
 using KudoCode.Web.Api.Connector;
 

@@ -16,9 +16,9 @@ namespace KudoCode.Web.Blazor.Application
 
 		public async Task InvokeAsync(HttpContext context)
 		{
-			if (context.Request.Cookies[$"{_tokenId}-TOKEN"] == null)
+			if (context.Request.Cookies[$"CSRF-TOKEN"] == null)
 			{
-				context.Response.Cookies.Append($"{_tokenId}-TOKEN", Guid.NewGuid().ToString(),
+				context.Response.Cookies.Append($"CSRF-TOKEN", Guid.NewGuid().ToString(),
 					new CookieOptions { HttpOnly = false, Expires = DateTime.Now.AddMinutes(20) });
 			}
 
