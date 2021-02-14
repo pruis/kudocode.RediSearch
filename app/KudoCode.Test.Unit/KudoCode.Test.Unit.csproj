@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Autofac" Version="5.2.0" />
     <PackageReference Include="KudoCode.Helpers" Version="1.0.0.31" />
     <PackageReference Include="KudoCode.LogicLayer.Plugin.EntityAudit.Dtos" Version="1.0.0.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />

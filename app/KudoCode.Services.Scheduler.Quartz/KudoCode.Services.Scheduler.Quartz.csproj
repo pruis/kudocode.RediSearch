@@ -8,7 +8,7 @@
       <PackageReference Include="KudoCode.Helpers" Version="1.0.0.31" />
       <PackageReference Include="KudoCode.Web.Api.Connector" Version="1.0.0.31" />
 
-      <PackageReference Include="Autofac" Version="6.1.0" />
+      <PackageReference Include="Autofac" Version="5.2.0" />
       <PackageReference Include="Autofac.Extras.Quartz" Version="5.1.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />

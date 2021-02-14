@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Autofac" Version="5.2.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="KudoCode.Helpers" Version="1.0.0.31" />
     <PackageReference Include="KudoCode.LogicLayer.Infrastructure" Version="1.0.0.31" />

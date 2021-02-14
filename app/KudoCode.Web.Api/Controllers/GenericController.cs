@@ -7,20 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace KudoCode.Web.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/EndPoint")]
+    [Route("api/Generic")]
     [EnableCors("CorsPolicy")] 
-    public class EndPointController : Controller
+    public class GenericController : Controller
     {
         private readonly ApiControllerRequestManager _apiControllerRequestManager;
 
-        public EndPointController(ApiControllerRequestManager apiControllerRequestManager)
+        public GenericController(ApiControllerRequestManager apiControllerRequestManager)
         {
             _apiControllerRequestManager = apiControllerRequestManager;
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<object> Request([FromBody] ApiControllerRequestDto dto)
+        public async Task<object> Post([FromBody] ApiControllerRequestDto dto)
         {
             return await _apiControllerRequestManager.Execute(dto);
         }
