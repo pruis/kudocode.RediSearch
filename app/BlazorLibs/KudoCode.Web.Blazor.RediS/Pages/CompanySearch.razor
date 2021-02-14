@@ -78,7 +78,7 @@
 	private async void Search()
 	{
 		await ApiPostController
-		.Create<SearchRediSRequest, SearchRediSResponse>()
+		.CreateAsync<SearchRediSRequest, SearchRediSResponse>()
 			.SetOnSuccess((rsp) =>
 			{
 				Response = rsp.Result;
@@ -94,7 +94,7 @@
 				Messages.AddRange(rsp.Messages);
 				StateHasChanged();
 			})
-			.Post(new SearchRediSRequest()
+			.PostAsync(new SearchRediSRequest()
 			{
 				SearchText = this.SearchText,
 				IndexName = "GetCompany",
